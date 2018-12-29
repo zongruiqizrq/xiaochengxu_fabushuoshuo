@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<!-- 这个按钮是授权用的抄的 -->
+ <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+<button bindtap="toShuoshuo" type="primary">发表说说</button>
+<view wx:for="{{result}}" class="box" wx:key="{{index}}" wx:for-item="list">
+    <view class="left" >
+        <image src="{{list.avatarUrl}}" class="avatar" bindtap="yulan" data-url="{{list.avatarUrl}}" data-src="{{list.avatarUrl}}"></image>
+    </view>
+    <view class="right">
+        <view class="yonghuming">
+        {{list.nickName}}
+        </view>
+        <view class="xinqing">
+        {{list.content}}
+        </view>
+        <view  class="tubox">
+          <image  wx:for="{{list.fwqPics}}" wx:key="{{index}}" wx:for-item="pic" src="{{bendi}}/{{pic}}" class="tu" mode = "aspectFill" data-url="{{list.fwqPics}}" data-index="{{index}}" bindtap="chenggongyulan"></image>
+        </view>
+        <view class="time">
+        {{list.time}}
+        </view>
+    </view>
+  
+</view>

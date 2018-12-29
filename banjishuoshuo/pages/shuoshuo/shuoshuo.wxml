@@ -1,0 +1,9 @@
+<view class="section">
+<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <textarea placeholder="写下你的心情。。。" auto-focus  bindinput="changeContent" value='{{content}}' />
+  <button bindtap="choosePic">上传图片</button>
+  <view wx:for="{{picArr}}" wx:key="{{index}}" class="pic">
+    <image src="{{item}}"  mode = "aspectFill" data-url="{{item}}" data-index="{{index}}" bindtap="chenggongyulan"></image>
+  </view>
+   <button type="primary" bindtap="shangchuan">发布</button>
+</view>
